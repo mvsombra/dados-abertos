@@ -1,0 +1,185 @@
+id,municipio,area,mesorregiao,microregiao
+1,Abaiara,"179,906",Sul,Brejo Santo
+2,Acarape,"155,188",Norte,Baturité
+3,Acaraú,"842,884",Noroeste,Litoral de Camocim e Acaraú
+4,Acopiara,"2.265,32",Sertões,Sertão de Senador Pompeu
+5,Aiuaba,"2.434,41",Sertões,Sertão de Inhamuns
+6,Alcântaras,"138,598",Noroeste,Meruoca
+7,Altaneira,"73,296",Sul,Caririaçu
+8,Alto Santo,"1.338,74",Jaguaribe,Baixo Jaguaribe
+9,Amontada,"1.179,59",Norte,Itapipoca
+10,Antonina do Norte,"260,101",Centro-sul Cearense,Várzea Alegre
+11,Apuiarés,"565,1",Norte,Médio Curu
+12,Aquiraz,"480,976",Metropolitana de Fortaleza,Fortaleza
+13,Aracati,"1.229,19",Jaguaribe,Litoral de Aracati
+14,Aracoiaba,"656,532",Norte,Baturité
+15,Ararendá,"354,7",Sertões,Sertão de Crateús
+16,Araripe,"1.347,05",Sul,Chapada do Araripe
+17,Aratuba,"142,538",Norte,Baturité
+18,Arneiroz,"1.066,43",Sertões,Sertão de Inhamuns
+19,Assaré,"1.116,32",Sul,Chapada do Araripe
+20,Aurora,"885,827",Sul,Barro
+21,Baixio,"146,442",Centro-Sul Cearense,Lavras da Mangabeira
+22,Banabuiú,"1.079,99",Sertões,Sertão de Quixeramobim
+23,Barbalha,"479,184",Sul,Cariri
+24,Barreira,"245,946",Norte,Chorozinho
+25,Barro,"709,655",Sul,Barro
+26,Barroquinha,"383,426",Noroeste,Litoral de Camocim e Acaraú
+27,Baturité,"308,78",Norte,Baturité
+28,Beberibe,"1 616,389",Norte,Cascavel
+29,Bela Cruz,"841,718",Noroeste,Litoral de Camocim e Acaraú
+30,Boa Viagem,"2.836,77",Sertões,Sertão de Quixeramobim
+31,Brejo Santo,"661,959",Sul,Brejo Santo
+32,Camocim,"1.123,94",Noroeste,Litoral de Camocim e Acaraú
+33,Campos Sales,"1.082,77",Sul,Chapada do Araripe
+34,Canindé,"3.218,42",Norte,Canindé
+35,Capistrano,"194,797",Norte,Baturité
+36,Caridade,"846,373",Norte,Canindé
+37,Cariré,"756,893",Noroeste,Sobral
+38,Caririaçu,"623,823",Sul,Caririaçu
+39,Cariús,"1 061,825",Centro-Sul Cearense,Várzea Alegre
+40,Carnaubal,"364,75",Noroeste,Ibiapaba
+41,Cascavel,"837,967",Norte,Cascavel
+42,Catarina,"486,859",Sertões,Sertão de Inhamuns
+43,Catunda,"790,483",Noroeste,Santa Quitéria
+44,Caucaia,"1.227,90",Metropolitana de Fortaleza,Fortaleza
+45,Cedro,"725,786",Centro-Sul Cearense,Iguatu
+46,Chaval,"238,228",Noroeste,Litoral de Camocim e Acaraú
+47,Choró,"815,759",Sertões,Sertão de Quixeramobim
+48,Chorozinho,"278,4",Norte,Chorozinho
+49,Coreaú,"775,746",Noroeste,Coreaú
+50,Crateús,"2.985,41",Sertões,Sertão de Crateús
+51,Crato,"1 009,202",Sul,Cariri
+52,Croatá,"700,356",Noroeste,Ibiapaba
+53,Cruz,"334,833",Noroeste,Litoral de Camocim e Acaraú
+54,Deputado Irapuan Pinheiro,"470,421",Sertões,Sertão de Senador Pompeu
+55,Ererê,"382,73",Jaguaribe,Serra do Pereiro
+56,Eusébio,"78,65",Metropolitana de Fortaleza,Fortaleza
+57,Farias Brito,"503,574",Sul,Caririaçu
+58,Forquilha,"516,988",Noroeste,Sobral
+59,Fortaleza,"313,14",Metropolitana de Fortaleza,Fortaleza
+60,Fortim,"280,184",Jaguaribe,Litoral de Aracati
+61,Frecheirinha,"181,24",Noroeste,Coreaú
+62,General Sampaio,"206,198",Norte,Médio Curu
+63,Graça,"281,89",Noroeste,Sobral
+64,Granja,"2.697,20",Noroeste,Litoral de Camocim e Acaraú
+65,Granjeiro,"100,135",Sul,Caririaçu
+66,Groaíras,"155,963",Noroeste,Sobral
+67,Guaiúba,"267,203",Metropolitana de Fortaleza,Fortaleza
+68,Guaraciaba do Norte,"611,463",Noroeste,Ibiapaba
+69,Guaramiranga,"59,471",Norte,Baturité
+70,Hidrolândia,"966,572",Noroeste,Santa Quitéria
+71,Horizonte,"159,972",Metropolitana de Fortaleza,Pacajus
+72,Ibaretama,"877,25",Sertões,Sertão de Quixeramobim
+73,Ibiapina,"414,902",Noroeste,Ibiapaba
+74,Ibicuitinga,"424,242",Jaguaribe,Baixo Jaguaribe
+75,Icapuí,"428,688",Jaguaribe,Litoral de Aracati
+76,Icó,"1 871,980",Centro-sul Cearense,Iguatu
+77,Iguatu,"1 029,002",Centro-sul Cearense,Iguatu
+78,Independência,"3.218,64",Sertões,Sertão de Crateús
+79,Ipaporanga,"701,99",Sertões,Sertão de Crateús
+80,Ipaumirim,"273,696",Centro-sul Cearense,Várzea Alegre
+81,Ipu,"630,468",Noroeste,Ipu
+82,Ipueiras,"1.474,11",Noroeste,Ipu
+83,Iracema,"822,833",Jaguaribe,Serra do Pereiro
+84,Irauçuba,"1.461,22",Noroeste,Sobral
+85,Itaiçaba,"209,49",Jaguaribe,Litoral de Aracati
+86,Itaitinga,"150,788",Metropolitana de Fortaleza,Fortaleza
+87,Itapajé,"439,501",Norte,Uruburetama
+88,Itapipoca,"1.614,68",Norte,Itapipoca
+89,Itapiúna,"588,684",Norte,Baturité
+90,Itarema,"720,668",Noroeste,Litoral de Camocim e Acaraú
+91,Itatira,"783,347",Norte,Canindé
+92,Jaguaretama,"1.759,72",Jaguaribe,Médio Jaguaribe
+93,Jaguaribara,"668,291",Jaguaribe,Médio Jaguaribe
+94,Jaguaribe,"1.876,79",Jaguaribe,Médio Jaguaribe
+95,Jaguaruana,"867,251",Jaguaribe,Baixo Jaguaribe
+96,Jardim,"457,034",Sul,Cariri
+97,Jati,"312,584",Sul,Brejo Santo
+98,Jijoca de Jericoacoara,"201,858",Noroeste,Litoral de Camocim e Acaraú
+99,Juazeiro do Norte,"248,558",Sul,Cariri
+100,Jucás,"937,18",Centro-Sul Cearense,Várzea Alegre
+101,Lavras da Mangabeira,"947,957",Centro-Sul Cearense,Lavras da Mangabeira
+102,Limoeiro do Norte,"751,535",Jaguaribe,Baixo Jaguaribe
+103,Madalena,"1.034,77",Sertões,Sertão de Quixeramobim
+104,Maracanaú,"105,696",Metropolitana de Fortaleza,Fortaleza
+105,Maranguape,"590,824",Metropolitana de Fortaleza,Fortaleza
+106,Marco,"574,148",Noroeste,Litoral de Camocim e Acaraú
+107,Martinópole,"298,948",Noroeste,Litoral de Camocim e Acaraú
+108,Massapê,"571,531",Noroeste,Sobral
+109,Mauriti,"1.111,86",Sul,Barro
+110,Meruoca,"144,94",Noroeste,Meruoca
+111,Milagres,"546,637",Sul,Brejo Santo
+112,Milhã,"502,036",Sertões,Sertão de Senador Pompeu
+113,Miraíma,"699,588",Noroeste,Sobral
+114,Missão Velha,"651,108",Sul,Cariri
+115,Mombaça,"2.119,46",Sertões,Sertão de Senador Pompeu
+116,Monsenhor Tabosa,"886,3",Sertões,Sertão de Crateús
+117,Morada Nova,"2.779,23",Jaguaribe,Baixo Jaguaribe
+118,Moraújo,"415,614",Noroeste,Coreaú
+119,Morrinhos,"408,878",Noroeste,Litoral de Camocim e Acaraú
+120,Mucambo,"190,538",Noroeste,Sobral
+121,Mulungu,"134,594",Norte,Baturité
+122,Nova Olinda,"284,404",Sul,Cariri
+123,Nova Russas,"741,4",Sertões,Sertão de Crateús
+124,Novo Oriente,"949,206",Sertões,Sertão de Crateús
+125,Ocara,"765,366",Norte,Chorozinho
+126,Orós,"576,269",Centro-Sul,Iguatu
+127,Pacajus,"254,435",Metropolitana de Fortaleza,Pacajus
+128,Pacatuba,"132,427",Metropolitana de Fortaleza,Fortaleza
+129,Pacoti,"111,959",Norte,Baturité
+130,Pacujá,"76,1",Noroeste,Sobral
+131,Palhano,"442,79",Jaguaribe,Baixo Jaguaribe
+132,Palmácia,"117,816",Norte,Baturité
+133,Paracuru,"303,253",Norte,Baixo Curu
+134,Paraipaba,"301,123",Norte,Baixo Curu
+135,Parambu,"2.303,40",Sertões,Sertão de Inhamuns
+136,Paramoti,"482,648",Norte,Canindé
+137,Pedra Branca,"1.303,27",Sertões,Sertão de Senador Pompeu
+138,Penaforte,"190,428",Sul,Brejo Santo
+139,Pentecoste,"1.378,30",Norte,Médio Curu
+140,Pereiro,"432,881",Jaguaribe,Serra do Pereiro
+141,Pindoretama,"72,855",Norte,Cascavel
+142,Piquet Carneiro,"587,887",Sertões,Sertão de Senador Pompeu
+143,Pires Ferreira,"242,191",Noroeste,Ipu
+144,Poranga,"1.309,27",Noroeste,Ipu
+145,Porteiras,"217,57",Sul,Cariri
+146,Potengi,"338,723",Sul,Chapada do Araripe
+147,Potiretama,"409,238",Jaguaribe,Serra do Pereiro
+148,Quiterianópolis,"1.040,96",Sertões,Sertão de Crateús
+149,Quixadá,"2.019,82",Sertões,Sertão de Quixeramobim
+150,Quixelô,"559,76",Centro-Sul Cearense,Iguatu
+151,Quixeramobim,"3.275,84",Sertões,Sertão de Quixeramobim
+152,Quixeré,"616,825",Jaguaribe,Baixo Jaguaribe
+153,Redenção,"225,626",Norte,Baturité
+154,Reriutaba,"383,119",Noroeste,Ipu
+155,Russas,"1.588,11",Jaguaribe,Baixo Jaguaribe
+156,Saboeiro,"1.383,47",Sertões,Sertão de Inhamuns
+157,Salitre,"899,824",Sul,Chapada do Araripe
+158,Santa Quitéria,"4.260,68",Noroeste,Santa Quitéria
+159,Santana do Acaraú,"969,323",Noroeste,Sobral
+160,Santana do Cariri,"768,768",Sul,Cariri
+161,São Benedito,"338,149",Noroeste,Ibiapaba
+162,São Gonçalo do Amarante,"834,394",Norte,Baixo Curu
+163,São João do Jaguaribe,"280,436",Jaguaribe,Baixo Jaguaribe
+164,São Luís do Curu,"122,42",Norte,Médio Curu
+165,Senador Pompeu,"1.002,13",Sertões,Sertão de Senador Pompeu
+166,Senador Sá,"430,58",Noroeste,Sobral
+167,Sobral,"2.129,99",Noroeste,Sobral
+168,Solonópole,"1.536,16",Sertões,Sertão de Senador Pompeu
+169,Tabuleiro do Norte,86.194,Jaguaribe,Baixo Jaguaribe
+170,Tamboril,"1.961,63",Sertões,Sertão de Crateús
+171,Tarrafas,"454,39",Centro-Sul Cearense,Várzea Alegre
+172,Tauá,"4.018,19",Sertões,Sertão de Inhamuns
+173,Tejuçuoca,"750,605",Norte,Médio Curu
+174,Tianguá,"908,893",Noroeste,Ibiapaba
+175,Trairi,"924,555",Norte,Itapipoca
+176,Tururu,"192,548",Norte,Uruburetama
+177,Ubajara,"421,037",Noroeste,Ibiapaba
+178,Umari,"263,917",Centro-Sul Cearense,Lavras da Mangabeira
+179,Umirim,"326,496",Norte,Uruburetama
+180,Uruburetama,"97,107",Norte,Uruburetama
+181,Uruoca,"696,77",Noroeste,Coreaú
+182,Varjota,179.255,Noroeste,Ipu
+183,Várzea Alegre,"835,706",Centro-Sul Cearense,Várzea Alegre
+184,Viçosa do Ceará,"1.311,59",Noroeste,Ibiapaba
