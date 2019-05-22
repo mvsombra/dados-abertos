@@ -39,7 +39,7 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1>Transparência de Dados Abertos do Estado do Ceará</h1>
-                <p class="lead">Projeto desenvolvido para disponibilizar, à população do Estado do Ceará, os dados relativos à convênios, licitações e contratos dos Órgãos Jurisdiscionados.</p>
+                <p class="lead">Plataforma desenvolvida para disponibilizar, à população, os dados abertos dos Órgãos Municipais do Estado do Ceará.</p>
             </div>
         </div>
 
@@ -51,57 +51,98 @@
                         <div class="col-md-12">
                             <ul class="nav nav-tabs nav-justified" id="navtab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="transp-tab" href="#form-transparencia" role="tab" aria-selected="true" aria-controls="form-transparencia" data-toggle="tab">
-                                        Transparência
+                                    <a class="nav-link active" id="transp-dados" href="#form-dados-abertos" role="tab" aria-selected="true" aria-controls="form-dados-abertos" data-toggle="tab">
+                                        Dados Abertos
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="aud-tab" href="#form-auditoria" role="tab" aria-selected="false" aria-controls="form-auditoria" data-toggle="tab">
-                                        Auditoria
+                                    <a class="nav-link" id="aud-av" href="#form-avancada" role="tab" aria-selected="false" aria-controls="form-avancada" data-toggle="tab">
+                                        Consulta Avançada
                                     </a>
                                 </li>
                             </ul>
+
+                            <div class="tab-content" id="form-content">
+                                <div class="tab-pane fade show text-align form-new active" id="form-dados-abertos" role="tabpanel" aria-labelledby="form-dados-abertos">
+                                    <form>
+                                        <div class="form-row form-line">
+                                            <div class="col">
+                                                <label for="municipio">Município</label>
+                                                <select class="form-control" id="municipio" required>
+                                                    <option>Fortaleza</option>
+                                                    <option>Caucaia</option>
+                                                    <option>Juazeiro do Norte</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col">
+                                                <label for="entidade">Entidade</label>
+                                                <select class="form-control" id="entidade" required>
+                                                    <option>Prefeitura</option>
+                                                    <option>Câmara</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row form-line">
+                                            <div class="col">
+                                                <label for="inicio">Início</label>
+                                                <input type="date" class="form-control" id="inicio" required>
+                                            </div>
+
+                                            <div class="col">
+                                                <label for="fim">Fim</label>
+                                                <input type="date" class="form-control" id="fim" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row form-line">
+                                            <button type="submit" class="btn btn-primary">Buscar</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane fade show text-align form-new" id="form-avancada" role="tabpanel" aria-labelledby="form-avancada">
+                                    <form>
+                                        <div class="form-row form-line">
+                                            <div class="col">
+                                                <label for="municipio">Município</label>
+                                                <select class="form-control" id="municipio" required>
+                                                    <option>Fortaleza</option>
+                                                    <option>Caucaia</option>
+                                                    <option>Juazeiro do Norte</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col">
+                                                <label for="entidade">Entidade</label>
+                                                <select class="form-control" id="entidade" required>
+                                                    <option>Prefeitura</option>
+                                                    <option>Câmara</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row form-line">
+                                            <div class="col">
+                                                <label for="inicio">Início</label>
+                                                <input type="date" class="form-control" id="inicio" required>
+                                            </div>
+
+                                            <div class="col">
+                                                <label for="fim">Fim</label>
+                                                <input type="date" class="form-control" id="fim" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row form-line">
+                                            <button type="submit" class="btn btn-primary">Buscar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </section>
-
-                <section class="my-5">
-                    <form>
-                        <div class="form-row form-line">
-                            <div class="col">
-                                <label for="municipio">Município</label>
-                                <select class="form-control" id="municipio" required>
-                                    <option>Fortaleza</option>
-                                    <option>Caucaia</option>
-                                    <option>Juazeiro do Norte</option>
-                                </select>
-                            </div>
-
-                            <div class="col">
-                                <label for="entidade">Entidade</label>
-                                <select class="form-control" id="entidade" required>
-                                    <option>Prefeitura</option>
-                                    <option>Câmara</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row form-line">
-                            <div class="col">
-                                <label for="inicio">Início</label>
-                                <input type="date" class="form-control" id="inicio" required>
-                            </div>
-
-                            <div class="col">
-                                <label for="fim">Fim</label>
-                                <input type="date" class="form-control" id="fim" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row form-line">
-                            <button type="submit" class="btn btn-primary">Buscar</button>
-                        </div>
-                    </form>
                 </section>
             </div>
         </div>
