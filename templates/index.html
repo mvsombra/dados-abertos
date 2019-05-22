@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-
+{% set brand_name = 'Dados Abertos CE' %}
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
@@ -10,12 +10,12 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ url_for('.static', filename='css/style.css') }}">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <title>Teste</title>
+        <title>{{ brand_name }} - Página Inicial</title>
     </head>
 
     <body>
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">Dados Abertos</a>
+            <a class="navbar-brand" href="#">{{ brand_name }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,19 +48,26 @@
                 <section class="my-5">
                     <h2 class="h1-responsive font-weight-bold text-center my-5">Selecione o tipo de consulta:</h2>
                     <div class="row">
-                        <div class="col">
-                            <a href="#" class="btn btn-lg btn-primary btn-block">Transparência</a>
-                        </div>
-
-                        <div class="col">
-                            <a href="#" class="btn btn-lg btn-primary btn-block">Auditoria</a>
+                        <div class="col-md-12">
+                            <ul class="nav nav-tabs nav-justified" id="navtab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="transp-tab" href="#form-transparencia" role="tab" aria-selected="true" aria-controls="form-transparencia" data-toggle="tab">
+                                        Transparência
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="aud-tab" href="#form-auditoria" role="tab" aria-selected="false" aria-controls="form-auditoria" data-toggle="tab">
+                                        Auditoria
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </section>
 
                 <section class="my-5">
                     <form>
-                        <div class="form-row">
+                        <div class="form-row form-line">
                             <div class="col">
                                 <label for="municipio">Município</label>
                                 <select class="form-control" id="municipio" required>
@@ -79,7 +86,7 @@
                             </div>
                         </div>
 
-                        <div class="form-row">
+                        <div class="form-row form-line">
                             <div class="col">
                                 <label for="inicio">Início</label>
                                 <input type="date" class="form-control" id="inicio" required>
@@ -89,6 +96,10 @@
                                 <label for="fim">Fim</label>
                                 <input type="date" class="form-control" id="fim" required>
                             </div>
+                        </div>
+
+                        <div class="form-row form-line">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
                         </div>
                     </form>
                 </section>
