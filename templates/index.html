@@ -104,6 +104,8 @@
                                             </div>
                                         </div>
 
+
+
                                         <input type="hidden" name="tipo" value="dados">
 
                                         <div class="form-row form-line">
@@ -114,7 +116,29 @@
 
                                 <div class="tab-pane fade show text-align form-new {{ class_avanc }}" id="form-avancada" role="tabpanel" aria-labelledby="form-avancada">
                                     <div class="container">
-                                        <h2>[Em breve]</h2>
+                                        <form method="post">
+                                            <div class="form-row form-line">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="radioop" id="radiolic" value="lic">
+                                                    <label class="form-check-label" for="radiolic">Licitações</label>
+                                                </div>
+
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="radioop" id="radiocont" value="cont">
+                                                    <label class="form-check-label" for="radiolic">Contratos</label>
+                                                </div>
+
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="radioop" id="radioconv" value="conv">
+                                                    <label class="form-check-label" for="radiolic">Convênios</label>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="tipo" value="avancado">
+
+                                            <div class="form-row form-line">
+                                                <button type="submit" class="btn btn-primary">Buscar</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
