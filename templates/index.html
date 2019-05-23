@@ -112,125 +112,45 @@
                                             <button type="submit" class="btn btn-primary">Buscar</button>
                                         </div>
                                     </form>
+
+                                    {% if results and active == 1 %}
+                                    {% include "includes/show_results.html" %}
+                                    {% endif %}
                                 </div>
 
                                 <div class="tab-pane fade show text-align form-new {{ class_avanc }}" id="form-avancada" role="tabpanel" aria-labelledby="form-avancada">
-                                    <div class="container">
-                                        <form method="post">
-                                            <div class="form-row form-line">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="radioop" id="radiolic" value="lic">
-                                                    <label class="form-check-label" for="radiolic">Licitações</label>
-                                                </div>
-
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="radioop" id="radiocont" value="cont">
-                                                    <label class="form-check-label" for="radiolic">Contratos</label>
-                                                </div>
-
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="radioop" id="radioconv" value="conv">
-                                                    <label class="form-check-label" for="radiolic">Convênios</label>
-                                                </div>
+                                    <form method="post">
+                                        <div class="form-row form-line">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="radioop" id="radiolic" value="lic">
+                                                <label class="form-check-label" for="radiolic">Licitações</label>
                                             </div>
-                                            <input type="hidden" name="tipo" value="avancado">
 
-                                            <div class="form-row form-line">
-                                                <button type="submit" class="btn btn-primary">Buscar</button>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="radioop" id="radiocont" value="cont">
+                                                <label class="form-check-label" for="radiolic">Contratos</label>
                                             </div>
-                                        </form>
-                                    </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="radioop" id="radioconv" value="conv">
+                                                <label class="form-check-label" for="radiolic">Convênios</label>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="tipo" value="avancado">
+
+                                        <div class="form-row form-line">
+                                            <button type="submit" class="btn btn-primary">Buscar</button>
+                                        </div>
+                                    </form>
+
+                                    {% if results and active == 2 %}
+                                    {% include "includes/show_results.html" %}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
-                {% if results %}
-                <section class="my-5">
-                    <div id="accordion">
-                        <div class="card">
-                            <div class="card-header" id="hcard1">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#c1" aria-expanded="true" aria-controls="c1">
-                                        Licitações
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="c1" class="collapse" aria-labelledby="hcard1" data-parent="#accordion">
-                                <div class="card-body">
-                                    aaaa
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header" id="hcard2">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#c2" aria-expanded="true" aria-controls="c2">
-                                        Contratos
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="c2" class="collapse" aria-labelledby="hcard2" data-parent="#accordion">
-                                <div class="card-body">
-                                    aaaa
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header" id="hcard3">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#c3" aria-expanded="true" aria-controls="c3">
-                                        Convênios
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="c3" class="collapse" aria-labelledby="hcard3" data-parent="#accordion">
-                                <div class="card-body">
-                                    aaaa
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header" id="hcard4">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#c4" aria-expanded="true" aria-controls="c4">
-                                        Receitas
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="c4" class="collapse" aria-labelledby="hcard4" data-parent="#accordion">
-                                <div class="card-body">
-                                    aaaa
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header" id="hcard5">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#c5" aria-expanded="true" aria-controls="c5">
-                                        Despesas
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="c5" class="collapse" aria-labelledby="hcard5" data-parent="#accordion">
-                                <div class="card-body">
-                                    aaaa
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                {% endif %}
             </div>
         </div>
 
