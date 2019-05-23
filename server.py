@@ -8,6 +8,7 @@ app = Flask(__name__)
 def index():
     if(request.method == 'POST'):
         r = True
+        return str(request.form)
     else:
         r = False
     return render_template('index.html', active=1, results=r)
