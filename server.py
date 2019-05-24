@@ -10,9 +10,11 @@ dba = control.create_dba()
 def index():
     if(request.method == 'POST'):
         if(request.form['tipo'] == 'dados'):
-            return render_template('index.html', active=1, results=1)
+            return render_template('index.html', active=1, results=1,
+                                   q=request.form)
         elif(request.form['tipo'] == 'avancado'):
-            return render_template('index.html', active=2, results=1)
+            return render_template('index.html', active=2, results=1,
+                                   q=request.form)
         else:
             return redirect(url_for('index'))
     else:

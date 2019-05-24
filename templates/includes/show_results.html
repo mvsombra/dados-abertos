@@ -11,12 +11,18 @@
 
                             <div id="c1" class="collapse" aria-labelledby="hcard1" data-parent="#accordion">
                                 <div class="card-body">
+                                    {% if licitacoes %}
                                     aaaa
+                                    {% else %}
+                                    <div class="alert alert-danger" role="alert">
+                                        O sistema não encontrou nenhum dado relativo à licitações para este órgão
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card">
+                        <div class="card" style="margin-top: 10px;">
                             <div class="card-header" id="hcard2">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#c2" aria-expanded="true" aria-controls="c2">
@@ -27,12 +33,18 @@
 
                             <div id="c2" class="collapse" aria-labelledby="hcard2" data-parent="#accordion">
                                 <div class="card-body">
+                                    {% if contratos %}
                                     aaaa
+                                    {% else %}
+                                    <div class="alert alert-danger" role="alert">
+                                        O sistema não encontrou nenhum dado relativo à contratos para este órgão
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card">
+                        <div class="card" style="margin-top: 10px;">
                             <div class="card-header" id="hcard3">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#c3" aria-expanded="true" aria-controls="c3">
@@ -43,12 +55,18 @@
 
                             <div id="c3" class="collapse" aria-labelledby="hcard3" data-parent="#accordion">
                                 <div class="card-body">
+                                    {% if convenios %}
                                     aaaa
+                                    {% else %}
+                                    <div class="alert alert-danger" role="alert">
+                                        O sistema não encontrou nenhum dado relativo à convênios para este órgão
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card">
+                        <div class="card" style="margin-top: 10px;">
                             <div class="card-header" id="hcard4">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#c4" aria-expanded="true" aria-controls="c4">
@@ -59,12 +77,18 @@
 
                             <div id="c4" class="collapse" aria-labelledby="hcard4" data-parent="#accordion">
                                 <div class="card-body">
+                                    {% if receitas %}
                                     aaaa
+                                    {% else %}
+                                    <div class="alert alert-danger" role="alert">
+                                        O sistema não encontrou nenhum dado relativo à receitas para este órgão
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card">
+                        <div class="card" style="margin-top: 10px;">
                             <div class="card-header" id="hcard5">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#c5" aria-expanded="true" aria-controls="c5">
@@ -75,7 +99,13 @@
 
                             <div id="c5" class="collapse" aria-labelledby="hcard5" data-parent="#accordion">
                                 <div class="card-body">
+                                    {% if despesas %}
                                     aaaa
+                                    {% else %}
+                                    <div class="alert alert-danger" role="alert">
+                                        O sistema não encontrou nenhum dado relativo à despesas para este órgão
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

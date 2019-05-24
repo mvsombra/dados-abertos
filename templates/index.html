@@ -78,7 +78,7 @@
                                                 <label for="municipio">Município</label>
                                                 <select name="municipio" class="form-control" id="municipio" required>
                                                     {% for municipio in g.municipios %}
-                                                    <option>{{ municipio }}</option>
+                                                    <option value="{{ municipio.id }}">{{ municipio }}</option>
                                                     {% endfor %}
                                                 </select>
                                             </div>
@@ -86,8 +86,20 @@
                                             <div class="col">
                                                 <label for="entidade">Entidade</label>
                                                 <select name="entidade" class="form-control" id="entidade" required>
-                                                    <option>Prefeitura</option>
-                                                    <option>Câmara</option>
+                                                    {% if q %}
+                                                        {% if q['entidade'] == 'Prefeitura' %}
+                                                            {% set selectedpref = 'selected' %}
+                                                            {% set selectedcam = '' %}
+                                                        {% else %}
+                                                            {% set selectedpref = '' %}
+                                                            {% set selectedcam = 'selected' %}
+                                                        {% endif %}
+                                                    {% else %}
+                                                        {% set selectedpref = 'selected' %}
+                                                        {% set selectedcam = '' %}
+                                                    {% endif %}
+                                                    <option value="Prefeitura" {{ selectedpref }}>Prefeitura</option>
+                                                    <option value="Câmara" {{ selectedcam }}>Câmara</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -95,7 +107,11 @@
                                         <div class="form-row form-line">
                                             <div class="col">
                                                 <label for="inicio">Início</label>
+                                                {% if q %}
+                                                <input name="inicio" min="1970-01-01" type="date" class="form-control" value="{{ q['inicio']}}" id="inicio" required onchange="document.getElementById('fim').setAttribute('min', document.getElementById('inicio').value);">
+                                                {% else %}
                                                 <input name="inicio" min="1970-01-01" type="date" class="form-control" id="inicio" required onchange="document.getElementById('fim').setAttribute('min', document.getElementById('inicio').value);">
+                                                {% endif %}
                                                 <div class="invalid-feedback">
                                                     Escolha uma data inicial válida
                                                 </div>
@@ -103,7 +119,11 @@
 
                                             <div class="col">
                                                 <label for="fim">Fim</label>
+                                                {% if q %}
+                                                <input name="fim" min="1970-01-01" type="date" class="form-control" value="{{ q['fim']}}" id="fim" onchange="document.getElementById('inicio').setAttribute('max', document.getElementById('fim').value);" required>
+                                                {% else %}
                                                 <input name="fim" min="1970-01-01" type="date" class="form-control" id="fim" onchange="document.getElementById('inicio').setAttribute('max', document.getElementById('fim').value);" required>
+                                                {% endif %}
                                                 <div class="invalid-feedback">
                                                     Escolha uma data final válida
                                                 </div>
