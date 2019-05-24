@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, g, url_for, redirect
 from control_functions import Controler
-import pandas as pd
 
 app = Flask(__name__)
 control = Controler()
@@ -24,10 +23,8 @@ def index():
 def before_request():
     if(dba):
         g.municipios = dba.get_municipios()
-        print('bd')
     else:
-        g.municipios = pd.read_csv('static/municipios.csv')['municipio']
-        print('csv')
+        g.municipios = control.read_municipios()
 
 
 if(__name__ == '__main__'):

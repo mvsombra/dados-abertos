@@ -1,5 +1,6 @@
 import os
 import psycopg2
+from municipio import Municipio
 
 
 class BancoDados:
@@ -31,5 +32,10 @@ class AcessoBD:
         self.bd = BancoDados()
 
     def get_municipios(self):
-        q = "SELECT nome from municipios ORDER BY nome;"
-        return self.bd.read_query(q)
+        q = "SELECT * from municipios ORDER BY nome;"
+        list1 = self.bd.read_query(q)
+        new = []
+        for mun in list1:
+            m = Municipio(mun[0], mun[1], mun[2], mun[3])
+            new.append(m)
+        return new
