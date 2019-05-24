@@ -10,6 +10,8 @@ class Controler:
             return AcessoBD()
         except OperationalError:
             return None
+        except KeyError:
+            return None
 
     def read_municipios(self):
         municipios = []
