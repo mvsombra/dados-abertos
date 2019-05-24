@@ -15,7 +15,7 @@ class BancoDados:
         self.conn.commit()
 
     def fetch(self):
-        return self.db.cur.fetchall()
+        return self.cur.fetchall()
 
     def cud_query(self, q):
         self.run_query(q)
