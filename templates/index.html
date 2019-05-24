@@ -95,7 +95,7 @@
                                         <div class="form-row form-line">
                                             <div class="col">
                                                 <label for="inicio">Início</label>
-                                                <input name="inicio" min="1970-01-01" type="date" class="form-control" id="inicio" required>
+                                                <input name="inicio" min="1970-01-01" type="date" class="form-control" id="inicio" required onchange="document.getElementById('fim').setAttribute('min', document.getElementById('inicio').value);">
                                                 <div class="invalid-feedback">
                                                     Escolha uma data inicial válida
                                                 </div>
@@ -103,7 +103,7 @@
 
                                             <div class="col">
                                                 <label for="fim">Fim</label>
-                                                <input name="fim" min="1970-01-01" type="date" class="form-control" id="fim" required>
+                                                <input name="fim" min="1970-01-01" type="date" class="form-control" id="fim" onchange="document.getElementById('inicio').setAttribute('max', document.getElementById('fim').value);" required>
                                                 <div class="invalid-feedback">
                                                     Escolha uma data final válida
                                                 </div>
@@ -127,6 +127,7 @@
 
                                 <div class="tab-pane fade show text-align form-new {{ class_avanc }}" id="form-avancada" role="tabpanel" aria-labelledby="form-avancada">
                                     <form method="post">
+                                        <fieldset disabled>
                                         <div class="form-row form-line">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="radioop" id="radiolic" value="lic">
@@ -148,6 +149,7 @@
                                         <div class="form-row form-line">
                                             <button type="submit" class="btn btn-primary">Buscar</button>
                                         </div>
+                                        </fieldset>
                                     </form>
 
                                     {% if results and active == 2 %}
