@@ -4,3 +4,6 @@ class Municipio:
         self.nome = nome
         self.mesorregiao = meso
         self.microrregiao = micro
+
+    def __str__(self):
+        return self.nome
