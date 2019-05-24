@@ -78,7 +78,16 @@
                                                 <label for="municipio">Município</label>
                                                 <select name="municipio" class="form-control" id="municipio" required>
                                                     {% for municipio in g.municipios %}
-                                                    <option value="{{ municipio.id }}">{{ municipio }}</option>
+                                                        {% if q %}
+                                                            {% if q['municipio'] == municipio.nome %}
+                                                            {% set is_sel = 'selected' %}
+                                                            {% else %}
+                                                            {% set is_sel = '' %}
+                                                            {% endif %}
+                                                        {% else %}
+                                                        {% set is_sel = '' %}
+                                                        {% endif %}
+                                                    <option value="{{ municipio }}" {{ is_sel }}>{{ municipio }}</option>
                                                     {% endfor %}
                                                 </select>
                                             </div>
