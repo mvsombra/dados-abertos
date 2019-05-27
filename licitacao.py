@@ -1,3 +1,6 @@
+import datetime
+
+
 class Licitacao:
     def __init__(self, i, mun, ed, obj, mod, org, dt, sts):
         self.id = i
@@ -6,8 +9,13 @@ class Licitacao:
         self.objeto = obj
         self.modalidade = mod
         self.orgao = org
-        self.data_abertura = dt
+        self._dt = dt
         self.status = sts
 
     def __str__(self):
         return '{} - {}'.format(self.edital, self.objeto)
+
+    @property
+    def data_abertura(self):
+        y = datetime.datetime.strptime(self._dt, '%Y-%m-%d')
+        return y.strftime('%d/%m/%Y')

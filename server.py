@@ -14,8 +14,6 @@ def index():
                 lics = dba.get_licitacoes()
             else:
                 lics = control.read_licitacoes()
-
-            print(lics)
             return render_template('index.html', active=1, results=1,
                                    q=request.form, lics=lics)
         elif(request.form['tipo'] == 'avancado'):

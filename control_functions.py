@@ -42,7 +42,7 @@ class Controler:
         status = csv['status']
         licitacoes = []
         for n in range(1):
-            lic = Licitacao(ids[n], editais[n], municipios[n], objetos[n],
+            lic = Licitacao(ids[n], municipios[n], editais[n], objetos[n],
                             modalidades[n], orgaos[n], datas[n], status[n])
             licitacoes.append(lic)
 
