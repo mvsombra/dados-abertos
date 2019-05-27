@@ -43,7 +43,6 @@ class AcessoBD:
 
     def get_licitacoes(self):
         q = "SELECT * FROM licitacoes;"
-        return self.bd.read_query(q)
         list1 = self.bd.read_query(q)
         new = []
         for l in list1:
