@@ -10,8 +10,14 @@ dba = control.create_dba()
 def index():
     if(request.method == 'POST'):
         if(request.form['tipo'] == 'dados'):
+            if(dba):
+                lics = dba.get_licitacoes()
+            else:
+                lics = control.read_licitacoes()
+
+            print(lics)
             return render_template('index.html', active=1, results=1,
-                                   q=request.form)
+                                   q=request.form, lics=lics)
         elif(request.form['tipo'] == 'avancado'):
             return render_template('index.html', active=2, results=1,
                                    q=request.form)
