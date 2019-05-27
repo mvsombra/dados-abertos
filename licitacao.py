@@ -9,7 +9,7 @@ class Licitacao:
         self.objeto = obj
         self.modalidade = mod
         self.orgao = org
-        self._dt = dt
+        self._dt = str(dt)
         self.status = sts
 
     def __str__(self):
