@@ -1,5 +1,5 @@
 class Licitacao:
-    def __init__(self, i, ed, mun, obj, mod, org, dt, sts):
+    def __init__(self, i, mun, ed, obj, mod, org, dt, sts):
         self.id = i
         self.edital = ed
         self.municipio = mun
