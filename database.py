@@ -44,9 +44,7 @@ class AcessoBD:
 
     def get_licitacoes(self, municipio, periodo):
         ini = periodo['inicio']
-        ini = datetime.datetime.strptime(ini, '%d/%m/%Y').strftime('%Y-%m-%d')
         fim = periodo['fim']
-        fim = datetime.datetime.strptime(fim, '%d/%m/%Y').strftime('%Y-%m-%d')
         q = "SELECT * FROM licitacoes INNER JOIN municipios AS m ON " \
             "m.id=municipio WHERE nome='{}' AND data_abertura BETWEEN " \
             "'{}' and '{}';".format(municipio, ini, fim)
