@@ -11,7 +11,9 @@ def index():
     if(request.method == 'POST'):
         if(request.form['tipo'] == 'dados'):
             if(dba):
-                lics = dba.get_licitacoes(request.form['municipio'])
+                periodo = {'inicio': request.form['inicio'],
+                           'fim': request.form['fim']}
+                lics = dba.get_licitacoes(request.form['municipio'], periodo)
             else:
                 lics = control.read_licitacoes()
             return render_template('index.html', active=1, results=1,

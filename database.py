@@ -1,5 +1,6 @@
 import os
 import psycopg2
+import datetime
 from municipio import Municipio
 from licitacao import Licitacao
 
@@ -41,9 +42,14 @@ class AcessoBD:
             new.append(m)
         return new
 
-    def get_licitacoes(self, municipio):
+    def get_licitacoes(self, municipio, periodo):
+        ini = periodo['inicio']
+        ini = datetime.datetime.strptime(ini, '%d/%m/%Y').strftime('%Y-%m-%d')
+        fim = periodo['fim']
+        fim = datetime.datetime.strptime(fim, '%d/%m/%Y').strftime('%Y-%m-%d')
         q = "SELECT * FROM licitacoes INNER JOIN municipios AS m ON " \
-            "m.id=municipio WHERE nome='{}';".format(municipio)
+            "m.id=municipio WHERE nome='{}' AND data_abertura BETWEEN " \
+            "'{}' and '{}';".format(municipio, ini, fim)
         list1 = self.bd.read_query(q)
         new = []
         for l in list1:
