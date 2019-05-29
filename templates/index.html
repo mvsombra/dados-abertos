@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-{% set brand_name = 'Dados Abertos CE' %}
+﻿{% include "includes/head.html" %}
+
 {% if active == 1 %}
 {% set class_dados = 'active' %}
 {% set class_avanc = '' %}
@@ -7,49 +7,12 @@
 {% set class_dados = '' %}
 {% set class_avanc = 'active' %}
 {% endif %}
-
-<html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="robots" content="index, follow">
-        <meta name="author" content="Marcos Sombra">
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ url_for('.static', filename='css/style.css') }}">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <title>{{ brand_name }} - Página Inicial</title>
     </head>
 
     <body>
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="/">{{ brand_name }}</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Página Inicial</a>
-                    </li>
-
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Sobre</a>
-                    </li>
-
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Contato</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1>Transparência de Dados Abertos do Estado do Ceará</h1>
-                <p class="lead">Plataforma desenvolvida para disponibilizar, à população, os dados abertos dos Órgãos Municipais do Estado do Ceará.</p>
-            </div>
-        </div>
+{% include "includes/menu.html" %}
+{% include "includes/chamada.html" %}
 
         <div class="jumbotron-fluid">
             <div class="container">
@@ -192,20 +155,4 @@
             </div>
         </div>
 
-        <div class="bottom section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="copyright">
-                            <p>© <span>2019</span> <a href="/" class="transition">{{ brand_name }}</a> -  Todos os direitos reservados</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
-</html>
+{% include "includes/rodape.html" %}

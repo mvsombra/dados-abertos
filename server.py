@@ -27,8 +27,14 @@ def index():
         return render_template('index.html', active=1, results=0)
 
 
+@app.route('/sobre')
+def sobre():
+    return render_template('sobre.html')
+
+
 @app.before_request
 def before_request():
+    g.brand_name = 'Dados Abertos CE'
     if(dba):
         g.municipios = dba.get_municipios()
     else:
