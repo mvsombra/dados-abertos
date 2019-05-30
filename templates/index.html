@@ -7,7 +7,7 @@
 {% set class_dados = '' %}
 {% set class_avanc = 'active' %}
 {% endif %}
-        <title>{{ brand_name }} - Página Inicial</title>
+        <title>{{ g.brand_name }} - Página Inicial</title>
     </head>
 
     <body>
@@ -15,6 +15,32 @@
 {% include "includes/chamada.html" %}
 
         <div class="jumbotron-fluid">
+            <div class="container">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h3>Ranking de Transparência de Dados Abertos</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="container">
+                                    <h5>Prefeituras</h5>
+                                    <p>9 prefeituras disponibilizam dados abertos</p>
+                                    <button type="button" class="btn btn-primary">Listar</button>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="container">
+                                    <h5>Câmaras</h5>
+                                    <p>4 câmaras disponibilizam dados abertos</p>
+                                    <button type="button" class="btn btn-primary">Listar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="container">
                 <section class="my-5">
                     <h2 class="h1-responsive font-weight-bold text-center my-5">Selecione o tipo de consulta:</h2>
