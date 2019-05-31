@@ -44,7 +44,8 @@ def dados_abertos(municipio, ente):
     if(not municipio or not ente):
         return redirect(url_for('index'))
 
-    return 'Dados abertos da {} de {}'.format(ente, municipio)
+    return render_template('dados-entidades.html', ente=ente,
+                           municipio=municipio)
 
 
 @app.before_request

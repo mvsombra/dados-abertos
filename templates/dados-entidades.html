@@ -1,0 +1,18 @@
+{% include "includes/head.html" %}
+        <title>{{ g.brand_name }} - {{ ente }} de {{ municipio }}</title>
+    </head>
+
+    <body>
+{% include "includes/menu.html" %}
+{% include "includes/chamada.html" %}
+
+        <div class="jumbotron-fluid">
+            <div class="container">
+                <section class="my-5">
+                    <h2 class="h2-responsive text-center my-5">Dados abertos da {{ ente }} de {{ municipio }}</h2>
+                    {% include "includes/show_results.html" %}
+                </section>
+            </div>
+        </div>
+
+{% include "includes/rodape.html" %}
