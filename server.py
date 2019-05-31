@@ -32,6 +32,21 @@ def sobre():
     return render_template('sobre.html')
 
 
+@app.route('/consulta-basica', methods=['POST'])
+def consulta_basica():
+    req = request.form
+    return redirect('/dados/{}/{}'.format(req['municipio'], req['entidade']))
+
+
+@app.route('/dados/', defaults={'municipio': None, 'ente': None})
+@app.route('/dados/<municipio>/<ente>')
+def dados_abertos(municipio, ente):
+    if(not municipio or not ente):
+        return redirect(url_for('index'))
+
+    return 'Dados abertos da {} de {}'.format(ente, municipio)
+
+
 @app.before_request
 def before_request():
     g.brand_name = 'Dados Abertos CE'

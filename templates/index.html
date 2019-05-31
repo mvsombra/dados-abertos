@@ -25,7 +25,8 @@
                             <div class="col">
                                 <div class="container">
                                     <h5>Prefeituras</h5>
-                                    <p>9 prefeituras disponibilizam dados abertos</p>
+                                    <h2>9</h2>
+                                    <p>prefeituras disponibilizam dados abertos</p>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" id="modalbtnpref" data-target="#modalpref" role="button">Listar</button>
                                     <div class="modal fade" id="modalpref" aria-labelledby="modalpref" aria-hidden="true" tabindex="-1" role="dialog">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -59,7 +60,8 @@
                             <div class="col">
                                 <div class="container">
                                     <h5>Câmaras</h5>
-                                    <p>4 câmaras disponibilizam dados abertos</p>
+                                    <h2>4</h2>
+                                    <p>câmaras disponibilizam dados abertos</p>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" id="modalbtncam" data-target="#modalcam" role="button">Listar</button>
                                     <div class="modal fade" id="modalcam" aria-labelledby="modalcam" aria-hidden="true" tabindex="-1" role="dialog">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -90,6 +92,64 @@
                 </div>
             </div>
 
+            <div class="container">
+                <section class="my-5">
+                    <h2 class="h2-responsive text-center my-5">Selecione o ente:</h2>
+                    <form method="post" class="needs-validation" novalidate action="/consulta-basica">
+                        <div class="form-row form-line">
+                            <div class="col">
+                                <label for="municipio">Município</label>
+                                <select name="municipio" class="form-control" id="municipio" required>
+                                    {% for municipio in g.municipios %}
+                                    <option value="{{ municipio }}">{{ municipio }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col">
+                                <label for="entidade">Entidade</label>
+                                <select name="entidade" class="form-control" id="entidade" required>
+                                    <option value="Prefeitura">Prefeitura</option>
+                                    <option value="Câmara">Câmara</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row form-line">
+                            <button type="submit" class="btn btn-primary">Consultar</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <div class="container">
+                <section class="my-5">
+                    <h2 class="h2-responsive text-center my-5">Consulta Avançada</h2>
+                    <form method="post" action="#">
+                        <fieldset disabled>
+                        <div class="form-row form-line">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="radioop" id="radiolic" value="lic">
+                                <label class="form-check-label" for="radiolic">Licitações</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="radioop" id="radiocont" value="cont">
+                                <label class="form-check-label" for="radiolic">Contratos</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="radioop" id="radioconv" value="conv">
+                                <label class="form-check-label" for="radiolic">Convênios</label>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-line">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
             <div class="container">
                 <section class="my-5">
                     <h2 class="h1-responsive font-weight-bold text-center my-5">Selecione o tipo de consulta:</h2>
