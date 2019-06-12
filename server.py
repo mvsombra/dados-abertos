@@ -35,7 +35,9 @@ def sobre():
 @app.route('/consulta-basica', methods=['POST'])
 def consulta_basica():
     req = request.form
-    return redirect('/dados/{}/{}'.format(req['municipio'], req['entidade']))
+    cidade = req['municipio'].lower().replace(' ', '-')
+    ente = req['entidade'].lower().replace(' ', '-')
+    return redirect('/dados/{}/{}'.format(cidade, ente))
 
 
 @app.route('/dados/', defaults={'municipio': None, 'ente': None})
@@ -44,6 +46,14 @@ def dados_abertos(municipio, ente):
     if(not municipio or not ente):
         return redirect(url_for('index'))
 
+    ente = ente.capitalize().replace('-', ' ')
+    temp = ""
+    for palavra in municipio.split('-'):
+        if(palavra.lower() not in ['do', 'de', 'da']):
+            temp += palavra.capitalize() + ' '
+        else:
+            temp += palavra + ' '
+    municipio = temp.strip()
     return render_template('dados-entidades.html', ente=ente,
                            municipio=municipio)
 

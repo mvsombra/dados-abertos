@@ -25,8 +25,8 @@
                             <div class="col">
                                 <div class="container">
                                     <h5>Prefeituras</h5>
-                                    <h2>9</h2>
-                                    <p>prefeituras disponibilizam dados abertos</p>
+                                    <h2>16</h2>
+                                    <p class="lead">prefeituras disponibilizam dados abertos</p>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" id="modalbtnpref" data-target="#modalpref" role="button">Listar</button>
                                     <div class="modal fade" id="modalpref" aria-labelledby="modalpref" aria-hidden="true" tabindex="-1" role="dialog">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -38,16 +38,9 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Das 184 Prefeituras do Estado do Ceará, as seguintes disponibilizam dados abertos:</p>
-                                                    <p>Eusébio</p>
-                                                    <p>Fortaleza</p>
-                                                    <p>Maranguape</p>
-                                                    <p>Nova Olinda</p>
-                                                    <p>Parambu</p>
-                                                    <p>Pedra Branca</p>
-                                                    <p>Pereiro</p>
-                                                    <p>Salitre</p>
-                                                    <p>Sobral</p>
+                                                    {% for municipio in g.municipios %}
+                                                    <p class="lead">{{ municipio }}</p>
+                                                    {% endfor %}
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -60,8 +53,8 @@
                             <div class="col">
                                 <div class="container">
                                     <h5>Câmaras</h5>
-                                    <h2>4</h2>
-                                    <p>câmaras disponibilizam dados abertos</p>
+                                    <h2>17</h2>
+                                    <p class="lead">câmaras disponibilizam dados abertos</p>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" id="modalbtncam" data-target="#modalcam" role="button">Listar</button>
                                     <div class="modal fade" id="modalcam" aria-labelledby="modalcam" aria-hidden="true" tabindex="-1" role="dialog">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -73,11 +66,9 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Das 184 Câmaras Municipais do Estado do Ceará, as seguintes disponibilizam dados abertos:</p>
-                                                    <p>Barro</p>
-                                                    <p>Carnaubal</p>
-                                                    <p>Ibicuitinga</p>
-                                                    <p>Palmácia</p>
+                                                    {% for municipio in g.municipios %}
+                                                    <p class="lead">{{ municipio }}</p>
+                                                    {% endfor %}
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -94,7 +85,7 @@
 
             <div class="container">
                 <section class="my-5">
-                    <h2 class="h2-responsive text-center my-5">Selecione o ente:</h2>
+                    <h2 class="h2-responsive text-center my-5">Selecione o Ente:</h2>
                     <form method="post" class="needs-validation" novalidate action="/consulta-basica">
                         <div class="form-row form-line">
                             <div class="col">
@@ -148,144 +139,6 @@
                         </div>
                         </fieldset>
                     </form>
-                </section>
-            </div>
-            <div class="container">
-                <section class="my-5">
-                    <h2 class="h1-responsive font-weight-bold text-center my-5">Selecione o tipo de consulta:</h2>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul class="nav nav-tabs nav-justified" id="navtab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link {{ class_dados }}" id="transp-dados" href="#form-dados-abertos" role="tab" aria-selected="true" aria-controls="form-dados-abertos" data-toggle="tab">
-                                        Dados Abertos
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link {{ class_avanc }}" id="aud-av" href="#form-avancada" role="tab" aria-selected="false" aria-controls="form-avancada" data-toggle="tab">
-                                        Consulta Avançada
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="tab-content" id="form-content">
-                                <div class="tab-pane fade show text-align form-new {{ class_dados }}" id="form-dados-abertos" role="tabpanel" aria-labelledby="form-dados-abertos">
-                                    <form method="post" class="needs-validation" novalidate>
-                                        <div class="form-row form-line">
-                                            <div class="col">
-                                                <label for="municipio">Município</label>
-                                                <select name="municipio" class="form-control" id="municipio" required>
-                                                    {% for municipio in g.municipios %}
-                                                        {% if q %}
-                                                            {% if q['municipio'] == municipio.nome %}
-                                                            {% set is_sel = 'selected' %}
-                                                            {% else %}
-                                                            {% set is_sel = '' %}
-                                                            {% endif %}
-                                                        {% else %}
-                                                        {% set is_sel = '' %}
-                                                        {% endif %}
-                                                    <option value="{{ municipio }}" {{ is_sel }}>{{ municipio }}</option>
-                                                    {% endfor %}
-                                                </select>
-                                            </div>
-
-                                            <div class="col">
-                                                <label for="entidade">Entidade</label>
-                                                <select name="entidade" class="form-control" id="entidade" required>
-                                                    {% if q %}
-                                                        {% if q['entidade'] == 'Prefeitura' %}
-                                                            {% set selectedpref = 'selected' %}
-                                                            {% set selectedcam = '' %}
-                                                        {% else %}
-                                                            {% set selectedpref = '' %}
-                                                            {% set selectedcam = 'selected' %}
-                                                        {% endif %}
-                                                    {% else %}
-                                                        {% set selectedpref = 'selected' %}
-                                                        {% set selectedcam = '' %}
-                                                    {% endif %}
-                                                    <option value="Prefeitura" {{ selectedpref }}>Prefeitura</option>
-                                                    <option value="Câmara" {{ selectedcam }}>Câmara</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-row form-line">
-                                            <div class="col">
-                                                <label for="inicio">Início</label>
-                                                {% if q %}
-                                                <input name="inicio" min="1970-01-01" type="date" class="form-control" value="{{ q['inicio']}}" id="inicio" required onchange="document.getElementById('fim').setAttribute('min', document.getElementById('inicio').value);">
-                                                {% else %}
-                                                <input name="inicio" min="1970-01-01" type="date" class="form-control" id="inicio" required onchange="document.getElementById('fim').setAttribute('min', document.getElementById('inicio').value);">
-                                                {% endif %}
-                                                <div class="invalid-feedback">
-                                                    Escolha uma data inicial válida
-                                                </div>
-                                            </div>
-
-                                            <div class="col">
-                                                <label for="fim">Fim</label>
-                                                {% if q %}
-                                                <input name="fim" min="1970-01-01" type="date" class="form-control" value="{{ q['fim']}}" id="fim" onchange="document.getElementById('inicio').setAttribute('max', document.getElementById('fim').value);" required>
-                                                {% else %}
-                                                <input name="fim" min="1970-01-01" type="date" class="form-control" id="fim" onchange="document.getElementById('inicio').setAttribute('max', document.getElementById('fim').value);" required>
-                                                {% endif %}
-                                                <div class="invalid-feedback">
-                                                    Escolha uma data final válida
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                        <input type="hidden" name="tipo" value="dados">
-
-                                        <div class="form-row form-line">
-                                            <button type="submit" class="btn btn-primary">Buscar</button>
-                                        </div>
-                                    </form>
-                                    <script type="text/javascript" src="{{ url_for('.static', filename='js/form-validation.js') }}"></script>
-
-                                    {% if results and active == 1 %}
-                                    {% include "includes/show_results.html" %}
-                                    {% endif %}
-                                </div>
-
-                                <div class="tab-pane fade show text-align form-new {{ class_avanc }}" id="form-avancada" role="tabpanel" aria-labelledby="form-avancada">
-                                    <form method="post">
-                                        <fieldset disabled>
-                                        <div class="form-row form-line">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="radioop" id="radiolic" value="lic">
-                                                <label class="form-check-label" for="radiolic">Licitações</label>
-                                            </div>
-
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="radioop" id="radiocont" value="cont">
-                                                <label class="form-check-label" for="radiolic">Contratos</label>
-                                            </div>
-
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="radioop" id="radioconv" value="conv">
-                                                <label class="form-check-label" for="radiolic">Convênios</label>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="tipo" value="avancado">
-
-                                        <div class="form-row form-line">
-                                            <button type="submit" class="btn btn-primary">Buscar</button>
-                                        </div>
-                                        </fieldset>
-                                    </form>
-
-                                    {% if results and active == 2 %}
-                                    {% include "includes/show_results.html" %}
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </section>
             </div>
         </div>
