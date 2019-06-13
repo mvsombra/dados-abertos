@@ -8,23 +8,7 @@ dba = control.create_dba()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if(request.method == 'POST'):
-        if(request.form['tipo'] == 'dados'):
-            if(dba):
-                periodo = {'inicio': request.form['inicio'],
-                           'fim': request.form['fim']}
-                lics = dba.get_licitacoes(request.form['municipio'], periodo)
-            else:
-                lics = control.read_licitacoes()
-            return render_template('index.html', active=1, results=1,
-                                   q=request.form, lics=lics)
-        elif(request.form['tipo'] == 'avancado'):
-            return render_template('index.html', active=2, results=1,
-                                   q=request.form)
-        else:
-            return redirect(url_for('index'))
-    else:
-        return render_template('index.html', active=1, results=0)
+    return render_template('index.html')
 
 
 @app.route('/sobre')
@@ -54,8 +38,12 @@ def dados_abertos(municipio, ente):
         else:
             temp += palavra + ' '
     municipio = temp.strip()
+    if(dba):
+        lics = dba.get_licitacoes(municipio)
+    else:
+        lics = control.read_licitacoes()
     return render_template('dados-entidades.html', ente=ente,
-                           municipio=municipio)
+                           municipio=municipio, lics=lics)
 
 
 @app.before_request

@@ -12,30 +12,32 @@
                             <div id="c1" class="collapse" aria-labelledby="hcard1" data-parent="#accordion">
                                 <div class="card-body">
                                     {% if lics %}
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Edital</th>
-                                                <th scope="col">Objeto</th>
-                                                <th scope="col">Modalidade</th>
-                                                <th scope="col">Órgão</th>
-                                                <th scope="col">Data de Abertura</th>
-                                                <th scope="col">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for lic in lics %}
-                                            <tr>
-                                                <td>{{ lic.edital }}</td>
-                                                <td>{{ lic.objeto }}</td>
-                                                <td>{{ lic.modalidade }}</td>
-                                                <td>{{ lic.orgao }}</td>
-                                                <td>{{ lic.data_abertura }}</td>
-                                                <td>{{ lic.status }}</td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Edital</th>
+                                                    <th scope="col">Objeto</th>
+                                                    <th scope="col">Modalidade</th>
+                                                    <th scope="col">Órgão</th>
+                                                    <th scope="col">Data de Abertura</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for lic in lics %}
+                                                <tr>
+                                                    <td>{{ lic.edital }}</td>
+                                                    <td>{{ lic.objeto }}</td>
+                                                    <td>{{ lic.modalidade }}</td>
+                                                    <td>{{ lic.orgao }}</td>
+                                                    <td>{{ lic.data_abertura }}</td>
+                                                    <td>{{ lic.status }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     {% else %}
                                     <div class="alert alert-danger" role="alert">
                                         O sistema não encontrou nenhum dado relativo à licitações para este órgão
