@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, g, url_for, redirect
+from unicodedata import normalize as normal
 from control_functions import Controler
 
 app = Flask(__name__)
@@ -20,24 +21,32 @@ def sobre():
 def consulta_basica():
     req = request.form
     cidade = req['municipio'].lower().replace(' ', '-')
-    ente = req['entidade'].lower().replace(' ', '-')
+    cidade = None
+    for municipio in g.municipios:
+        if(str(municipio) == req['municipio']):
+            cidade = municipio.nome_tratado
+            break
+    ente = req['entidade'].lower()
+    ente = normal('NFKD', ente).encode('ASCII', 'ignore').decode('ASCII')
     return redirect('/dados/{}/{}'.format(cidade, ente))
 
 
-@app.route('/dados/', defaults={'municipio': None, 'ente': None})
-@app.route('/dados/<municipio>/<ente>')
-def dados_abertos(municipio, ente):
-    if(not municipio or not ente):
+@app.route('/dados/', defaults={'cidade': None, 'ente': None})
+@app.route('/dados/<cidade>/<ente>')
+def dados_abertos(cidade, ente):
+    for municipio in g.municipios:
+        if(municipio.nome_tratado == cidade):
+            cidade = municipio
+            break
+
+    if(ente in ['camara', 'prefeitura']):
+        temp = {'camara': 'Câmara', 'prefeitura': 'Prefeitura'}
+        ente = temp[ente]
+    else:
+        ente = None
+    if(not cidade or not ente):
         return redirect(url_for('index'))
 
-    ente = ente.capitalize().replace('-', ' ')
-    temp = ""
-    for palavra in municipio.split('-'):
-        if(palavra.lower() not in ['do', 'de', 'da']):
-            temp += palavra.capitalize() + ' '
-        else:
-            temp += palavra + ' '
-    municipio = temp.strip()
     if(dba):
         lics = dba.get_licitacoes(municipio)
     else:
