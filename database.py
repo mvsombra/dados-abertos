@@ -1,6 +1,5 @@
 import os
 import psycopg2
-import datetime
 from municipio import Municipio
 from licitacao import Licitacao
 

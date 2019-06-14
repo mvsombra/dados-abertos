@@ -7,6 +7,13 @@ control = Controler()
 dba = control.create_dba()
 
 
+@app.rout('/teste')
+def teste():
+    bd = dba.bd
+    temp = bd.read_query('select * from entes;')
+    return str(temp)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
