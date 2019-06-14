@@ -9,6 +9,7 @@ dba = control.create_dba()
 
 @app.route('/teste')
 def teste():
+    return redirect(url_for('index'))
     bd = dba.bd
     for municipio in g.municipios:
         q = "insert into entes (municipio, nome) values ({}, 'Prefeitura');"
