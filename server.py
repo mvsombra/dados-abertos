@@ -7,7 +7,7 @@ control = Controler()
 dba = control.create_dba()
 
 
-@app.rout('/teste')
+@app.route('/teste')
 def teste():
     bd = dba.bd
     temp = bd.read_query('select * from entes;')
