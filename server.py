@@ -11,8 +11,27 @@ dba = control.create_dba()
 def teste():
     # return redirect(url_for('index'))
     bd = dba.bd
+    tops = ['Acarape', 'Caucaia', 'Crateús', 'Eusébio', 'Fortaleza', 'Sobral',
+            'Maranguape', 'Nova Olinda', 'Parambu', 'Pedra Branca', 'Tururu'
+            'Pentecoste', 'Pereiro', 'Potengi', 'Quiterianópolis', 'Salitre']
+    for municipio in g.municipios:
+        if str(municipio) in tops:
+            q = "UPDATE entes SET dados_abertos='t' WHERE municipio={} AND " \
+                "nome='Prefeitura';".format(municipio.id)
+            bd.cud_query(q)
+
+    tops = ['Barro', 'Canindé', 'Carnaubal', 'Crateús', 'Eusébio',
+            'Frecheirinha', 'Ibicuitinga', 'Itapiúna', 'Lavras da Mangabeira',
+            'Maranguape', 'Nova Olinda', 'Palmácia', 'Quixelô', 'Salitre',
+            'Sobral', 'Tabuleiro do Norte', 'Tururu']
+    for municipio in g.municipios:
+        if str(municipio) in tops:
+            q = "UPDATE entes SET dados_abertos='t' WHERE municipio={} AND " \
+                "nome='Câmara';".format(municipio.id)
+            bd.cud_query(q)
+
     q = "SELECT m.nome, e.nome, dados_abertos, url FROM municipios AS m " \
-        "INNER JOIN entes AS e ON m.id=e.municipio;"
+        "INNER JOIN entes AS e ON m.id=e.municipio WHERE dados_abertos='t';"
     temp = bd.read_query(q)
     return str(temp)
 
