@@ -32,12 +32,12 @@
                                                 <div class="modal-body">
                                                     {% for pref in prefs %}
                                                     {% if pref.dados_abertos %}
-                                                    {% set style = 'style=" color:#27AE60;"' %}
+                                                    {% set style = 'color:#27AE60;' %}
                                                     {% else %}
-                                                    {% set style = 'style=" color:#C0392B;"' %}
+                                                    {% set style = 'color:#C0392B;' %}
                                                     {% endif %}
                                                     <p class="lead">
-                                                        <a href="/dados/{{ pref.url }}/prefeitura" {{ style }} target="_blank">{{ pref.municipio }}</a>
+                                                        <a href="/dados/{{ pref.url }}/prefeitura" style="{{ style }}" target="_blank">{{ pref.municipio }}</a>
                                                     </p>
                                                     {% endfor %}
                                                 </div>
@@ -67,12 +67,12 @@
                                                 <div class="modal-body">
                                                     {% for cam in cams %}
                                                     {% if cam.dados_abertos %}
-                                                    {% set style = 'style=" color: #27AE60;"' %}
+                                                    {% set style = 'color: #27AE60;' %}
                                                     {% else %}
-                                                    {% set style = 'style=" color: #C0392B;"' %}
+                                                    {% set style = 'color: #C0392B;' %}
                                                     {% endif %}
                                                     <p class="lead">
-                                                        <a href="/dados/{{ cam.url }}/camara" {{ style }} target="_blank">{{ cam.municipio }}</a>
+                                                        <a href="/dados/{{ cam.url }}/camara" style="{{ style }}" target="_blank">{{ cam.municipio }}</a>
                                                     </p>
                                                     {% endfor %}
                                                 </div>
