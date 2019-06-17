@@ -55,7 +55,7 @@ class AcessoBD:
     def get_entes(self, ente=''):
         q = "SELECT m.nome, e.nome, dados_abertos, url FROM municipios AS m " \
             "INNER JOIN entes AS e ON m.id=e.municipio WHERE e.nome='{}' " \
-            "AND dados_abertos='t' ORDER BY nome;".format(ente)
+            "AND dados_abertos='t' ORDER BY m.nome;".format(ente)
         list1 = self.bd.read_query(q)
         new = []
         for l in list1:
