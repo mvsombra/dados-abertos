@@ -11,9 +11,10 @@ dba = control.create_dba()
 def teste():
     # return redirect(url_for('index'))
     bd = dba.bd
-    q = "alter table municipios add column url varchar unique;"
-    q = q.format('')
-    bd.cud_query(q)
+    for m in g.municipios:
+        q = "UPDATE municipios SET url='{}' WHERE nome='{}';"
+        q = q.format(m.nome_tratado, m.nome)
+        bd.cud_query(q)
     temp = bd.read_query('select * from municipios;')
     return str(temp)
 
