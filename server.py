@@ -9,18 +9,12 @@ dba = control.create_dba()
 
 @app.route('/teste')
 def teste():
-    return redirect(url_for('index'))
+    # return redirect(url_for('index'))
     bd = dba.bd
-    for municipio in g.municipios:
-        q = "insert into entes (municipio, nome) values ({}, 'Prefeitura');"
-        q = q.format(municipio.id)
-        bd.cud_query(q)
-
-    for municipio in g.municipios:
-        q = "insert into entes (municipio, nome) values ({}, 'Câmara');"
-        q = q.format(municipio.id)
-        bd.cud_query(q)
-    temp = bd.read_query('select * from entes;')
+    q = "alter table municipios add column url varchar unique;"
+    q = q.format('')
+    bd.cud_query(q)
+    temp = bd.read_query('select * from municipios;')
     return str(temp)
 
 
