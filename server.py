@@ -46,18 +46,25 @@ def consulta_basica():
 @app.route('/dados/', defaults={'cidade': None, 'ente': None})
 @app.route('/dados/<cidade>/<ente>')
 def dados_abertos(cidade, ente):
+    temp = None
     for municipio in g.municipios:
         if(municipio.nome_tratado == cidade):
-            cidade = municipio
+            temp = municipio
             break
+
+    cidade = temp
 
     if(ente in ['camara', 'prefeitura']):
         temp = {'camara': 'Câmara', 'prefeitura': 'Prefeitura'}
         ente = temp[ente]
     else:
         ente = None
-    if(not cidade or not ente):
+
+    if(not cidade):
         return redirect(url_for('index'))
+
+    if(not ente):
+        return str(cidade)
 
     if(dba):
         lics = dba.get_licitacoes(municipio)
