@@ -11,11 +11,9 @@ dba = control.create_dba()
 def teste():
     # return redirect(url_for('index'))
     bd = dba.bd
-    for m in g.municipios:
-        q = "UPDATE municipios SET url='{}' WHERE nome='{}';"
-        q = q.format(m.nome_tratado, m.nome)
-        bd.cud_query(q)
-    temp = bd.read_query('select * from municipios;')
+    q = "SELECT m.nome, e.nome, dados_abertos, url FROM municipios AS m " \
+        "INNER JOIN entes AS e ON m.id=e.municipio;"
+    temp = bd.read_query(q)
     return str(temp)
 
 
