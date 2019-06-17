@@ -2,6 +2,7 @@ import os
 import psycopg2
 from municipio import Municipio
 from licitacao import Licitacao
+from ente import Ente
 
 
 class BancoDados:
@@ -49,4 +50,15 @@ class AcessoBD:
         for l in list1:
             lic = Licitacao(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7])
             new.append(lic)
+        return new
+
+    def get_entes(self, ente=''):
+        q = "SELECT m.nome, e.nome, dados_abertos, url FROM municipios AS m " \
+            "INNER JOIN entes AS e ON m.id=e.municipio WHERE e.nome='{}';"
+        q = q.format(ente)
+        list1 = self.bd.read_query(q)
+        new = []
+        for l in list1:
+            new.append(Ente(l[0], l[1], l[2], l[3]))
+
         return new

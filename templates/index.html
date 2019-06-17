@@ -30,9 +30,9 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    {% for municipio in g.municipios %}
+                                                    {% for pref in prefs %}
                                                     <p class="lead">
-                                                        <a href="/dados/{{ municipio.nome_tratado }}/prefeitura" target="_blank">{{ municipio }}</a>
+                                                        <a href="/dados/{{ pref.url }}/prefeitura" target="_blank">{{ pref.municipio }}</a>
                                                     </p>
                                                     {% endfor %}
                                                 </div>
@@ -60,9 +60,9 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    {% for municipio in g.municipios %}
+                                                    {% for cam in cams %}
                                                     <p class="lead">
-                                                        <a href="/dados/{{ municipio.nome_tratado }}/camara" target="_blank">{{ municipio }}</a>
+                                                        <a href="/dados/{{ cam.url }}/camara" target="_blank">{{ cam.municipio }}</a>
                                                     </p>
                                                     {% endfor %}
                                                 </div>

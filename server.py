@@ -19,7 +19,9 @@ def teste():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    cams = dba.get_entes(ente='Câmara')
+    prefs = dba.get_entes(ente='Prefeitura')
+    return render_template('index.html', cams=cams, prefs=prefs)
 
 
 @app.route('/sobre')
