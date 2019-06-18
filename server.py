@@ -11,7 +11,7 @@ dba = control.create_dba()
 def teste():
     # return redirect(url_for('index'))
     bd = dba.bd
-    q = "SELECT municipio, orgao, edital FROM  licitacoes;"
+    q = "SELECT CONCAT(municipio, '/' orgao, '/' edital) FROM  licitacoes;"
     try:
         temp = bd.read_query(q)
     except Exception as e:
