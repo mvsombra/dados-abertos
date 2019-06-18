@@ -10,9 +10,7 @@ dba = control.create_dba()
 @app.route('/teste')
 def teste():
     # return redirect(url_for('index'))
-    q = "UPDATE licitacoes SET orgao='Prefeitura';"
     bd = dba.bd
-    bd.cud_query(q)
     q = "SELECT CONCAT(municipio, '/', orgao, '/', edital) FROM  licitacoes;"
     try:
         temp = bd.read_query(q)
