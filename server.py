@@ -10,7 +10,9 @@ dba = control.create_dba()
 @app.route('/teste')
 def teste():
     # return redirect(url_for('index'))
+    q = "UPDATE licitacoes SET orgao='Prefeitura';"
     bd = dba.bd
+    bd.cud_query()
     q = "SELECT CONCAT(municipio, '/', orgao, '/', edital) FROM  licitacoes;"
     try:
         temp = bd.read_query(q)
@@ -66,7 +68,7 @@ def dados_abertos(cidade, ente):
         return redirect(url_for('index'))
 
     if(dba):
-        lics = dba.get_licitacoes(municipio)
+        lics = dba.get_licitacoes(municipio, ente)
     else:
         lics = control.read_licitacoes()
     return render_template('dados-entidades.html', ente=ente,

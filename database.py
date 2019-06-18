@@ -42,9 +42,10 @@ class AcessoBD:
             new.append(m)
         return new
 
-    def get_licitacoes(self, municipio):
+    def get_licitacoes(self, municipio, ente):
         q = "SELECT * FROM licitacoes INNER JOIN municipios AS m ON " \
-            "m.id=municipio WHERE nome='{}';".format(municipio)
+            "m.id=municipio WHERE nome='{}' AND orgao='{}';"
+        q = q.format(municipio, ente)
         list1 = self.bd.read_query(q)
         new = []
         for l in list1:
