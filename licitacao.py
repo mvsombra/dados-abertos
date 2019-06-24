@@ -8,7 +8,7 @@ class Licitacao:
         self.municipio = mun
         self.objeto = obj
         self.modalidade = mod
-        self.orgao = org
+        self.entidade = org
         self._dt = str(dt)
         self.status = sts
 
