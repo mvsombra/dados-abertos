@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, g, url_for, redirect
 from unicodedata import normalize as normal
 from control_functions import Controler
+import requests
+from bs4 import BeautifulSoup as bs
 
 app = Flask(__name__)
 control = Controler()
@@ -9,17 +11,23 @@ dba = control.create_dba()
 
 @app.route('/teste')
 def teste():
+    base_url = "https://eusebio.tudotransparente.com.br/api/licitacoes/xml/{}"
     # return redirect(url_for('index'))
-    bd = dba.bd
+    # bd = dba.bd
     # q = "SELECT municipio, edital, objeto, modalidade, " \
     #    "orgao, data_abertura, status FROM licitacoes;"
 
-    q = "SELECT id FROM municipios WHERE nome='Eusébio';"
-    try:
-        temp = bd.read_query(q)
-    except Exception as e:
-        temp = str(e)
-    return str(temp)
+    for ano in ['2019', '2018']:
+        temp_url = base_url.format(ano)
+        page = requests.get(temp_url)
+        soup = bs(page.content, 'lxml')
+        lics = soup.findAll('licitacoes')
+        for lic in lics:
+            lic = [144, lic.numero.text, lic.objeto.text, lic.modalidade.text,
+                   'Prefeitura', lic.data.text, None]
+            dba.add_licitacoes(lic)
+
+    return redirect('/dados/eusebio/prefeitura')
 
 
 @app.route('/', methods=['GET', 'POST'])
