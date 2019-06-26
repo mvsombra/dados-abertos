@@ -63,3 +63,9 @@ class AcessoBD:
             new.append(Ente(l[0], l[1], l[2], l[3]))
 
         return new
+
+    def add_licitacoes(self):
+        q = "INSERT INTO licitacoes (municipio, edital, objeto, modalidade, " \
+            "orgao, data_abertura, status) VALUES ({}, '{}', '{}', '{}', " \
+            "'{}', '{}', '{}');"
+        self.bd.cud_query(q)

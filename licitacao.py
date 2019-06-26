@@ -17,5 +17,7 @@ class Licitacao:
 
     @property
     def data_abertura(self):
+        if(not self._dt):
+            return '----'
         y = datetime.datetime.strptime(self._dt, '%Y-%m-%d')
         return y.strftime('%d/%m/%Y')
