@@ -12,7 +12,7 @@ def teste():
     # return redirect(url_for('index'))
     bd = dba.bd
     q = "SELECT municipio, edital, objeto, modalidade, " \
-        "orgao, data_abertura, statusal) FROM  licitacoes;"
+        "orgao, data_abertura, status) FROM  licitacoes;"
     try:
         temp = bd.read_query(q)
     except Exception as e:
