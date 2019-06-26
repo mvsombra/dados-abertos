@@ -11,8 +11,10 @@ dba = control.create_dba()
 def teste():
     # return redirect(url_for('index'))
     bd = dba.bd
-    q = "SELECT municipio, edital, objeto, modalidade, " \
-        "orgao, data_abertura, status FROM licitacoes;"
+    # q = "SELECT municipio, edital, objeto, modalidade, " \
+    #    "orgao, data_abertura, status FROM licitacoes;"
+
+    q = "SELECT id FROM municipios WHERE nome='Eusébio';"
     try:
         temp = bd.read_query(q)
     except Exception as e:
