@@ -14,9 +14,8 @@ dba = control.create_dba()
 def teste():
     # return redirect(url_for('index'))
     bd = dba.bd
-    q = "SELECT id, nome FROM municipios WHERE nome IN " \
-        "['Eusébio', 'Maranguape', 'Nova Olinda', 'Parambu', 'Pedra Branca'," \
-        " 'Salitre']"
+    q = "SELECT id, nome FROM municipios WHERE nome IN ('Eusébio', " \
+        "'Maranguape', 'Nova Olinda', 'Parambu', 'Pedra Branca', 'Salitre');"
     #    "orgao, data_abertura, status FROM licitacoes;"
     return str(bd.read_query(q))
 
