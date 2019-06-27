@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request, g, url_for, redirect
 from unicodedata import normalize as normal
 from control_functions import Controler
-import requests
-from datetime import datetime
-from bs4 import BeautifulSoup as bs
 
 app = Flask(__name__)
 control = Controler()
@@ -12,6 +9,7 @@ dba = control.create_dba()
 
 @app.route('/teste')
 def teste():
+    return 'ok'
     # return redirect(url_for('index'))
     bd = dba.bd
     q = "SELECT id, nome FROM municipios WHERE nome IN ('Eusébio', " \

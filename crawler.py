@@ -1,15 +1,20 @@
 import requests
 from bs4 import BeautifulSoup as bs
 from datetime import datetime as dt
+from control_functions import Controler
 
 
 class Busca_licitacoes:
     def __init__(self):
+        control = Controler()
+        self.dba = control.create_dba()
         self.anos = [2019, 2018, 2017]
         self.prefeituras = ['eusebio', 'maranguape', 'novaolinda', 'parambu',
                             'pedrabranca', 'salitre']
         self.camaras = ['cmeusebio', 'cmnovaolinda']
-        self.ids = {'eusebio': 144}
+        self.ids = {'eusebio': 144, 'maranguape': 193, 'novaolinda': 210,
+                    'parambu': 223, 'pedrabranca': 225, 'salitre': 245,
+                    'cmeusebio': 144, 'cmnovaolinda': 210}
 
     def _tratar_data(self, data):
         if(not data):
@@ -45,6 +50,23 @@ class Busca_licitacoes:
                     if(not lic):
                         break
 
+                    i = self.ids[ente]
+                    num = lic.numero.text
+                    if(not num):
+                        num = '---'
+                    data = self._tratar_data(lic.data.content)
+                    obj = lic.objeto.text
+                    if(not obj):
+                        obj = '---'
+                    mod = lic.modalidade.text
+                    if(not mod):
+                        mod = '---'
+                    tipo = lic.tipo.text
+                    if(not tipo):
+                        tipo = '---'
+
+                    lic = [i, num, obj, mod, 'Prefeitura', data, '---']
+
             for ente in self.camaras:
                 temp_url = base_url.format(ente, ano)
                 page = requests.get(temp_url)
@@ -53,7 +75,7 @@ class Busca_licitacoes:
                 for lic in lics:
                     if(not lic):
                         break
-                    i = ''
+                    i = self.ids[ente]
                     num = lic.numero.text
                     if(not num):
                         num = '---'
