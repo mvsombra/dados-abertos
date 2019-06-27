@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, g, url_for, redirect
 from unicodedata import normalize as normal
 from control_functions import Controler
 import requests
+import datetime
 from bs4 import BeautifulSoup as bs
 
 app = Flask(__name__)
@@ -23,8 +24,23 @@ def teste():
         soup = bs(page.content, 'lxml')
         lics = soup.findAll('licitacoes')
         for lic in lics:
+            data = lic.data.text
+            if('/' in data):
+                if(len(data) == 10):
+                    data = datetime.strptime(data, '%d/%m/%Y')
+                    data = data.strftime('%Y-%m-%d')
+                elif(len(data) == 8):
+                    data = datetime.strptime(data, '%d/%m/%y')
+                    data = data.strftime('%Y-%m-%d')
+            elif('-' in data):
+                if(len(data) == 10):
+                    data = datetime.strptime(data, '%d-%m-%Y')
+                    data = data.strftime('%Y-%m-%d')
+                elif(len(data) == 8):
+                    data = datetime.strptime(data, '%d-%m-%y')
+                    data = data.strftime('%Y-%m-%d')
             lic = [144, lic.numero.text, lic.objeto.text, lic.modalidade.text,
-                   'Prefeitura', lic.data.text, None]
+                   'Prefeitura', data, None]
             dba.add_licitacoes(lic)
 
     return redirect('/dados/eusebio/prefeitura')
