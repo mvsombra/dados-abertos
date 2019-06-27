@@ -12,38 +12,13 @@ dba = control.create_dba()
 
 @app.route('/teste')
 def teste():
-    base_url = "https://eusebio.tudotransparente.com.br/api/licitacoes/xml/{}"
     # return redirect(url_for('index'))
-    # bd = dba.bd
-    # q = "SELECT municipio, edital, objeto, modalidade, " \
+    bd = dba.bd
+    q = "SELECT id, nome FROM municipios WHERE nome IN " \
+        "['Eusébio', 'Maranguape', 'Nova Olinda', 'Parambu', 'Pedra Branca'," \
+        " 'Salitre']"
     #    "orgao, data_abertura, status FROM licitacoes;"
-
-    for ano in ['2019', '2018']:
-        temp_url = base_url.format(ano)
-        page = requests.get(temp_url)
-        soup = bs(page.content, 'lxml')
-        lics = soup.findAll('licitacoes')
-        for lic in lics:
-            data = lic.data.text
-            if('/' in data):
-                if(len(data) == 10):
-                    data = datetime.strptime(data, '%d/%m/%Y')
-                    data = data.strftime('%Y-%m-%d')
-                elif(len(data) == 8):
-                    data = datetime.strptime(data, '%d/%m/%y')
-                    data = data.strftime('%Y-%m-%d')
-            elif('-' in data):
-                if(len(data) == 10):
-                    data = datetime.strptime(data, '%d-%m-%Y')
-                    data = data.strftime('%Y-%m-%d')
-                elif(len(data) == 8):
-                    data = datetime.strptime(data, '%d-%m-%y')
-                    data = data.strftime('%Y-%m-%d')
-            lic = [144, lic.numero.text, lic.objeto.text, lic.modalidade.text,
-                   'Prefeitura', data, None]
-            dba.add_licitacoes(lic)
-
-    return redirect('/dados/eusebio/prefeitura')
+    return str(bd.read_query(q))
 
 
 @app.route('/', methods=['GET', 'POST'])
