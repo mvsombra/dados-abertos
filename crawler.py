@@ -4,7 +4,7 @@ from datetime import datetime as dt
 from control_functions import Controler
 
 
-class Busca_licitacoes:
+class Lics_Tudo_Transparente:
     def __init__(self):
         control = Controler()
         self.dba = control.create_dba()
@@ -38,7 +38,25 @@ class Busca_licitacoes:
 
         return data
 
-    def tudo_transparente(self):
+    def _tratar_licitacao(self, lic, ente="Prefeitura"):
+        i = self.ids[ente]
+        num = lic.numero.text
+        if(not num):
+            num = '---'
+        data = self._tratar_data(lic.data.content)
+        obj = lic.objeto.text
+        if(not obj):
+            obj = '---'
+        mod = lic.modalidade.text
+        if(not mod):
+            mod = '---'
+        tipo = lic.tipo.text
+        if(not tipo):
+            tipo = '---'
+
+        return [i, num, obj, mod, ente, data, '---']
+
+    def crawl(self):
         base_url = "https://{}.tudotransparente.com.br/api/licitacoes/xml/{}"
         for ano in self.anos:
             for ente in self.prefeituras:
@@ -50,22 +68,8 @@ class Busca_licitacoes:
                     if(not lic):
                         break
 
-                    i = self.ids[ente]
-                    num = lic.numero.text
-                    if(not num):
-                        num = '---'
-                    data = self._tratar_data(lic.data.content)
-                    obj = lic.objeto.text
-                    if(not obj):
-                        obj = '---'
-                    mod = lic.modalidade.text
-                    if(not mod):
-                        mod = '---'
-                    tipo = lic.tipo.text
-                    if(not tipo):
-                        tipo = '---'
-
-                    lic = [i, num, obj, mod, 'Prefeitura', data, '---']
+                    lic = self._tratar_licitacao(lic)
+                    self.dba.add_licitacoes(lic)
 
             for ente in self.camaras:
                 temp_url = base_url.format(ente, ano)
@@ -75,21 +79,8 @@ class Busca_licitacoes:
                 for lic in lics:
                     if(not lic):
                         break
-                    i = self.ids[ente]
-                    num = lic.numero.text
-                    if(not num):
-                        num = '---'
-                    data = self._tratar_data(lic.data.content)
-                    obj = lic.objeto.text
-                    if(not obj):
-                        obj = '---'
-                    mod = lic.modalidade.text
-                    if(not mod):
-                        mod = '---'
-                    tipo = lic.tipo.text
-                    if(not tipo):
-                        tipo = '---'
 
-                    lic = [i, num, obj, mod, 'Prefeitura', data, '---']
+                    lic = self._tratar_licitacao(lic, ente="Câmara")
+                    self.dba.add_licitacoes(lic)
 
         return base_url

@@ -70,3 +70,6 @@ class AcessoBD:
             "'{}', '{}', '{}');".format(dados[0], dados[1], dados[2], dados[3],
                                         dados[4], dados[5], dados[6])
         self.bd.cud_query(q)
+
+    def delete_licitacoes(self):
+        self.cud_query("DELETE * FROM licitacoes;")
