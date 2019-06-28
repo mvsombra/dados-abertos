@@ -58,7 +58,7 @@ class Lics_Tudo_Transparente:
         if(not num):
             num = '---'
         try:
-            data = self._tratar_data(lic.data.content)
+            data = self._tratar_data(lic.data.text)
         except AttributeError:
             data = None
         if(not data):
