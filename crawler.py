@@ -38,7 +38,7 @@ class Lics_Tudo_Transparente:
 
         return data
 
-    def _tratar_licitacao(self, lic, ente="Prefeitura"):
+    def _tratar_licitacao(self, lic, ente, tipo_ente="Prefeitura"):
         i = self.ids[ente]
         num = lic.numero.text
         if(not num):
@@ -54,7 +54,7 @@ class Lics_Tudo_Transparente:
         if(not tipo):
             tipo = '---'
 
-        return [i, num, obj, mod, ente, data, '---']
+        return [i, num, obj, mod, tipo_ente, data, '---']
 
     def crawl(self):
         base_url = "https://{}.tudotransparente.com.br/api/licitacoes/xml/{}"
@@ -68,7 +68,7 @@ class Lics_Tudo_Transparente:
                     if(not lic):
                         break
 
-                    lic = self._tratar_licitacao(lic)
+                    lic = self._tratar_licitacao(lic, ente)
                     self.dba.add_licitacoes(lic)
 
             for ente in self.camaras:
@@ -80,7 +80,7 @@ class Lics_Tudo_Transparente:
                     if(not lic):
                         break
 
-                    lic = self._tratar_licitacao(lic, ente="Câmara")
+                    lic = self._tratar_licitacao(lic, ente, tipo_ente="Câmara")
                     self.dba.add_licitacoes(lic)
 
         return base_url
