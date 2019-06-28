@@ -38,6 +38,17 @@ class Lics_Tudo_Transparente:
 
         return data
 
+    def _tratar_texto(self, txt):
+        while("'" in txt):
+            indice = txt.index("'")
+            txt = txt[:indice] + "\\" + txt[indice:]
+
+        while('"' in txt):
+            indice = txt.index('"')
+            txt = txt[:indice] + "\\" + txt[indice:]
+
+        return txt
+
     def _tratar_licitacao(self, lic, ente, tipo_ente="Prefeitura"):
         i = self.ids[ente]
         try:
@@ -71,7 +82,9 @@ class Lics_Tudo_Transparente:
         if(not tipo):
             tipo = '---'
 
-        return [i, num, obj, mod, tipo_ente, data, '---']
+        return [i, self._tratar_texto(num), self._tratar_texto(obj),
+                self._tratar_texto(mod), self._tratar_texto(tipo_ente),
+                self._tratar_texto(data), '---']
 
     def crawl(self):
         base_url = "https://{}.tudotransparente.com.br/api/licitacoes/xml/{}"
