@@ -40,17 +40,32 @@ class Lics_Tudo_Transparente:
 
     def _tratar_licitacao(self, lic, ente, tipo_ente="Prefeitura"):
         i = self.ids[ente]
-        num = lic.numero.text
+        try:
+            num = lic.numero.text
+        except AttributeError:
+            num = None
         if(not num):
             num = '---'
-        data = self._tratar_data(lic.data.content)
-        obj = lic.objeto.text
+        try:
+            data = self._tratar_data(lic.data.content)
+        except AttributeError:
+            data = None
+        try:
+            obj = lic.objeto.text
+        except AttributeError:
+            obj = None
         if(not obj):
             obj = '---'
-        mod = lic.modalidade.text
+        try:
+            mod = lic.modalidade.text
+        except AttributeError:
+            mod = None
         if(not mod):
             mod = '---'
-        tipo = lic.tipo.text
+        try:
+            tipo = lic.tipo.text
+        except AttributeError:
+            tipo = None
         if(not tipo):
             tipo = '---'
 
