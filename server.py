@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, g, url_for, redirect
 from unicodedata import normalize as normal
 from control_functions import Controler
-from Crawler import Lics_Tudo_Transparente as ltt
+from crawler import Lics_Tudo_Transparente as ltt
 
 app = Flask(__name__)
 control = Controler()
