@@ -72,4 +72,4 @@ class AcessoBD:
         self.bd.cud_query(q)
 
     def delete_licitacoes(self):
-        self.bd.cud_query("DELETE * FROM licitacoes;")
+        self.bd.cud_query("DELETE FROM licitacoes;")
