@@ -18,23 +18,23 @@ class Lics_Tudo_Transparente:
 
     def _tratar_data(self, data):
         if(not data):
-            return '0000-00-00'
+            return '1970-01-01'
         if('/' in data):
             if(len(data) == 10):
                 data = dt.strptime(data, '%d/%m/%Y').strftime('%Y-%m-%d')
             elif(len(data) == 8):
                 data = dt.strptime(data, '%d/%m/%y').strftime('%Y-%m-%d')
             else:
-                data = '0000-00-00'
+                data = '1970-01-01'
         elif('-' in data):
             if(len(data) == 10):
                 data = dt.strptime(data, '%d-%m-%Y').strftime('%Y-%m-%d')
             elif(len(data) == 8):
                 data = dt.strptime(data, '%d-%m-%y').strftime('%Y-%m-%d')
             else:
-                data = '0000-00-00'
+                data = '1970-01-01'
         else:
-            data = '0000-00-00'
+            data = '1970-01-01'
 
         return data
 
