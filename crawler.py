@@ -50,6 +50,8 @@ class Lics_Tudo_Transparente:
             data = self._tratar_data(lic.data.content)
         except AttributeError:
             data = None
+        if(not data):
+            data = '1970-01-01'
         try:
             obj = lic.objeto.text
         except AttributeError:
