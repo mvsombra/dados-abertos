@@ -18,23 +18,23 @@ class Lics_Tudo_Transparente:
 
     def _tratar_data(self, data):
         if(not data):
-            return '---'
+            return None
         if('/' in data):
             if(len(data) == 10):
                 data = dt.strptime(data, '%d/%m/%Y').strftime('%Y-%m-%d')
             elif(len(data) == 8):
                 data = dt.strptime(data, '%d/%m/%y').strftime('%Y-%m-%d')
             else:
-                data = '---'
+                data = None
         elif('-' in data):
             if(len(data) == 10):
                 data = dt.strptime(data, '%d-%m-%Y').strftime('%Y-%m-%d')
             elif(len(data) == 8):
                 data = dt.strptime(data, '%d-%m-%y').strftime('%Y-%m-%d')
             else:
-                data = '---'
+                data = None
         else:
-            data = '---'
+            data = None
 
         return data
 
@@ -42,17 +42,17 @@ class Lics_Tudo_Transparente:
         i = self.ids[ente]
         num = lic.numero.text
         if(not num):
-            num = '---'
+            num = None
         data = self._tratar_data(lic.data.content)
         obj = lic.objeto.text
         if(not obj):
-            obj = '---'
+            obj = None
         mod = lic.modalidade.text
         if(not mod):
-            mod = '---'
+            mod = None
         tipo = lic.tipo.text
         if(not tipo):
-            tipo = '---'
+            tipo = None
 
         return [i, num, obj, mod, tipo_ente, data, '---']
 
