@@ -71,5 +71,10 @@ class AcessoBD:
                                         dados[4], dados[5], dados[6])
         self.bd.cud_query(q)
 
-    def delete_licitacoes(self):
-        self.bd.cud_query("DELETE FROM licitacoes;")
+    def delete_licitacoes(self, invalidas=False):
+        if(not invalidas):
+            self.bd.cud_query("DELETE FROM licitacoes;")
+        else:
+            q = "DELETE FROM licitacoes WHERE numero='---' AND objeto='---' " \
+                "AND modalidade='---' AND data='1970-01-01';"
+            self.bd.cud_query(q)

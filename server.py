@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, g, url_for, redirect
 from unicodedata import normalize as normal
 from control_functions import Controler
-from crawler import Lics_Tudo_Transparente as ltt
 
 app = Flask(__name__)
 control = Controler()
@@ -10,10 +9,11 @@ dba = control.create_dba()
 
 @app.route('/teste')
 def teste():
+    return "nenhum teste"
     dba.delete_licitacoes()
-    crawler = ltt()
-    crawler.crawl()
-    return redirect('/dados/eusebio/prefeitura')
+    # crawler = ltt()
+    # crawler.crawl()
+    # return redirect('/dados/eusebio/prefeitura')
 
 
 @app.route('/', methods=['GET', 'POST'])
