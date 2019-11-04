@@ -1,19 +1,9 @@
 from flask import Flask, render_template, request, g, url_for, redirect
 from unicodedata import normalize as normal
-from control_functions import Controler
+from database import AcessoBD
 
 app = Flask(__name__)
-control = Controler()
-dba = control.create_dba()
-
-
-@app.route('/teste')
-def teste():
-    return "nenhum teste"
-    dba.delete_licitacoes()
-    # crawler = ltt()
-    # crawler.crawl()
-    # return redirect('/dados/eusebio/prefeitura')
+dba = AcessoBD()
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -62,10 +52,7 @@ def dados_abertos(cidade, ente):
     if(not cidade or not ente):
         return redirect(url_for('index'))
 
-    if(dba):
-        lics = dba.get_licitacoes(municipio, ente)
-    else:
-        lics = control.read_licitacoes()
+    lics = dba.get_licitacoes(municipio, ente)
     return render_template('dados-entidades.html', ente=ente,
                            municipio=municipio, lics=lics)
 
@@ -73,10 +60,7 @@ def dados_abertos(cidade, ente):
 @app.before_request
 def before_request():
     g.brand_name = 'Dados Abertos CE'
-    if(dba):
-        g.municipios = dba.get_municipios()
-    else:
-        g.municipios = control.read_municipios()
+    g.municipios = dba.get_municipios()
 
 
 if(__name__ == '__main__'):
