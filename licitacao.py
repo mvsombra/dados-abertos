@@ -1,11 +1,12 @@
 
-from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.ext.declarative import declarative_base
 import datetime
 
-Base = declarative_base()
+# Base = declarative_base()
 
 
-class Licitacao(Base):
+# class Licitacao(Base):
+class Licitacao:
     def __init__(self, i, mun, ed, obj, mod, org, dt, sts):
         self.id = i
         self.edital = ed
